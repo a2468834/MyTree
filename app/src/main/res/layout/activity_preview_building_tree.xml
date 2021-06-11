@@ -47,8 +47,8 @@
         app:layout_constraintEnd_toEndOf="@+id/標題_text"
         app:layout_constraintStart_toStartOf="@+id/標題_text"
         app:layout_constraintTop_toTopOf="@+id/標題_text" />
-
-    <!-- A placeholder of test logs. -->
+<!--
+    <!- - A placeholder of test logs. - ->
     <TextView
         android:id="@+id/test_log_text"
         android:layout_width="320dp"
@@ -60,14 +60,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+-->
 
-    <!--
-        <com.anychart.AnyChartView
-            android:id="@+id/pie_chart"
-            android:layout_width="103dp"
-            android:layout_height="70dp"
-            tools:ignore="MissingClass,MissingConstraints" />
-    -->
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pie_chart"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:gravity="center"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="89dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/rectangle_small_機會投資"
@@ -103,7 +107,7 @@
         android:fadingEdge="horizontal"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="167dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -179,7 +183,7 @@
         android:fadingEdge="horizontal"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="167dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -229,7 +233,7 @@
         android:fadingEdge="horizontal"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="167dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -320,7 +324,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginEnd="280dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="0dp" />
 
     <View
         android:id="@+id/rectangle_small"

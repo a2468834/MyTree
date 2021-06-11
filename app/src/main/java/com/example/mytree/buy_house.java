@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ public class buy_house extends AppCompatActivity {
     private Spinner risk_range;
     private static final String[] risk_range_list = {"我可承受的風險範圍", "積極型", "穩健型", "保守型", "我不知道"};
 
+    private ImageView go_back_button;
     private TextView button_text;
     private View button_rectangle;
 
@@ -38,6 +40,49 @@ public class buy_house extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         risk_range.setAdapter(adapter);
 
+        button_text = (TextView) findViewById(R.id.text_3);
+        button_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Object[] inputs = getIntentValues();
+                Intent intent = new Intent(buy_house.this, list_all_pages.class);
+                intent.putExtra("input_1", (int)inputs[0]);
+                intent.putExtra("input_2", (String)inputs[1]);
+                intent.putExtra("input_3", (int)inputs[2]);
+                intent.putExtra("input_4", (int)inputs[3]);
+                intent.putExtra("input_5", (String)inputs[4]);
+                intent.putExtra("input_6", (Float)inputs[5]);
+                startActivity(intent);
+            }
+        });
+
+        button_rectangle = (View) findViewById(R.id.rectangle_small_3);
+        button_rectangle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Object[] inputs = getIntentValues();
+                Intent intent = new Intent(buy_house.this, list_all_pages.class);
+                intent.putExtra("input_1", (int)inputs[0]);
+                intent.putExtra("input_2", (String)inputs[1]);
+                intent.putExtra("input_3", (int)inputs[2]);
+                intent.putExtra("input_4", (int)inputs[3]);
+                intent.putExtra("input_5", (String)inputs[4]);
+                intent.putExtra("input_6", (Float)inputs[5]);
+                startActivity(intent);
+            }
+        });
+
+        go_back_button = (ImageView) findViewById(R.id.返回鍵_image);
+        go_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(buy_house.this, lifestage_calc.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private Object[] getIntentValues(){
         // 取得：預計幾年後買屋呢？
         String input_1_str = ((EditText)findViewById(R.id.input_form_1)).getText().toString();
         int input_1 = Integer.parseInt(input_1_str);
@@ -77,34 +122,6 @@ public class buy_house extends AppCompatActivity {
         }
         final Float input_6_final = input_6;
 
-        button_text = (TextView) findViewById(R.id.text_3);
-        button_text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(buy_house.this, preview_building_tree.class);
-                intent.putExtra("input_1", input_1);
-                intent.putExtra("input_2", input_2);
-                intent.putExtra("input_3", input_3);
-                intent.putExtra("input_4", input_4);
-                intent.putExtra("input_5", input_5);
-                intent.putExtra("input_6", input_6_final);
-                startActivity(intent);
-            }
-        });
-
-        button_rectangle = (View) findViewById(R.id.rectangle_small_3);
-        button_rectangle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(buy_house.this, preview_building_tree.class);
-                intent.putExtra("input_1", input_1);
-                intent.putExtra("input_2", input_2);
-                intent.putExtra("input_3", input_3);
-                intent.putExtra("input_4", input_4);
-                intent.putExtra("input_5", input_5);
-                intent.putExtra("input_6", input_6_final);
-                startActivity(intent);
-            }
-        });
+        return new Object[] { input_1, input_2, input_3, input_4, input_5, input_6_final };
     }
 }

@@ -162,7 +162,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/返回鍵_image"
         android:layout_width="40dp"
         android:layout_height="40dp"

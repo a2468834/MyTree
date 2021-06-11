@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class my_forest extends AppCompatActivity {
 
-    private ImageButton go_to_home_page;
+    private ImageView go_back_button;
     private ImageView go_to_lifestage_calc;
     private ImageView go_to_plant_tree;
 
@@ -19,8 +19,8 @@ public class my_forest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_forest);
 
-        go_to_home_page = (ImageButton) findViewById(R.id.返回鍵_image);
-        go_to_home_page.setOnClickListener(new View.OnClickListener() {
+        go_back_button = (ImageView) findViewById(R.id.返回鍵_image);
+        go_back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(my_forest.this, koko_home_page.class);

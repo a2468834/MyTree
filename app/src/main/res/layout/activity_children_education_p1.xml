@@ -79,9 +79,7 @@
         app:layout_constraintEnd_toEndOf="@+id/rectangle_small_1"
         app:layout_constraintTop_toTopOf="@+id/rectangle_small_1"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle_small_1" />
-
-    <!--不會寫下拉式是選單-->
-    <!--android:prompt="你有(預計)幾位小孩？"-->
+<!--
     <Spinner
         android:id="@+id/spinner_1"
         android:background="@android:drawable/btn_dropdown"
@@ -95,37 +93,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rectangle_small_1" />
-
+-->
     <EditText
         android:id="@+id/input_form_3"
         tools:ignore="MissingConstraints"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
+        android:inputType="number"
+        android:maxLength="2"
         android:hint="第一位小寶貝年齡"
         android:textSize="17dp"
         android:gravity="center"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="90dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/spinner_1" />
+        app:layout_constraintTop_toTopOf="@id/rectangle_small_1" />
 
     <EditText
         android:id="@+id/input_form_4"
         tools:ignore="MissingConstraints"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
+        android:inputType="number"
+        android:maxLength="2"
         android:hint="第二位小寶貝年齡"
         android:textSize="17dp"
         android:gravity="center"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/input_form_3" />

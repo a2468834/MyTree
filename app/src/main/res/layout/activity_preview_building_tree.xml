@@ -7,7 +7,7 @@
     android:background="#c7dfed"
     tools:context=".preview_building_tree">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/返回鍵_image"
         android:layout_width="40dp"
         android:layout_height="40dp"

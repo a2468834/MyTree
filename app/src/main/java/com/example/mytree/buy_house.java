@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -22,8 +20,8 @@ public class buy_house extends AppCompatActivity {
     private static final String[] risk_range_list = {"我可承受的風險範圍", "積極型", "穩健型", "保守型", "我不知道"};
 
     private ImageView go_back_button;
-    private TextView button_text;
-    private View button_rectangle;
+    private TextView next_page_button_text;
+    private View next_page_button_rectangle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +38,12 @@ public class buy_house extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         risk_range.setAdapter(adapter);
 
-        button_text = (TextView) findViewById(R.id.text_3);
-        button_text.setOnClickListener(new View.OnClickListener() {
+        next_page_button_text = (TextView) findViewById(R.id.text_3);
+        next_page_button_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Object[] inputs = getIntentValues();
-                Intent intent = new Intent(buy_house.this, list_all_pages.class);
+                Intent intent = new Intent(buy_house.this, preview_building_tree.class);
                 intent.putExtra("input_1", (int)inputs[0]);
                 intent.putExtra("input_2", (String)inputs[1]);
                 intent.putExtra("input_3", (int)inputs[2]);
@@ -56,12 +54,12 @@ public class buy_house extends AppCompatActivity {
             }
         });
 
-        button_rectangle = (View) findViewById(R.id.rectangle_small_3);
-        button_rectangle.setOnClickListener(new View.OnClickListener() {
+        next_page_button_rectangle = (View) findViewById(R.id.rectangle_small_3);
+        next_page_button_rectangle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Object[] inputs = getIntentValues();
-                Intent intent = new Intent(buy_house.this, list_all_pages.class);
+                Intent intent = new Intent(buy_house.this, preview_building_tree.class);
                 intent.putExtra("input_1", (int)inputs[0]);
                 intent.putExtra("input_2", (String)inputs[1]);
                 intent.putExtra("input_3", (int)inputs[2]);
@@ -103,10 +101,10 @@ public class buy_house extends AppCompatActivity {
 
         // 取得：預期報酬率
         String input_6_str = ((EditText)findViewById(R.id.input_form_5)).getText().toString();
-        Float input_6 = Float.parseFloat(input_6_str);
+        Float input_6 = Float.parseFloat(input_6_str) * 0.01f;
 
         // Make 預期報酬率 be suitable to 我可承受的風險範圍 and 1%~15%
-        if ((input_4 < 0.01f) || (input_4 > 0.15f)){
+        if ((input_6 < 0.01f) || (input_6 > 0.15f)){
             if(input_5 == "積極型"){
                 input_6 = 0.1f;
             }

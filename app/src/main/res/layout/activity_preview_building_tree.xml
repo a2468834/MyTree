@@ -48,6 +48,19 @@
         app:layout_constraintStart_toStartOf="@+id/標題_text"
         app:layout_constraintTop_toTopOf="@+id/標題_text" />
 
+    <!-- A placeholder of test logs. -->
+    <TextView
+        android:id="@+id/test_log_text"
+        android:layout_width="320dp"
+        android:layout_height="145dp"
+        android:gravity="center|left"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!--
         <com.anychart.AnyChartView
             android:id="@+id/pie_chart"

@@ -84,68 +84,65 @@
         tools:ignore="MissingConstraints"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:hint="為你的夢想取名吧"
+        android:inputType="text"
+        android:ems="15"
+        android:hint="為你的夢想取名吧！"
         android:textSize="17dp"
         android:gravity="center"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_small_1" />
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_small_1" />
 
     <EditText
         android:id="@+id/input_form_2"
         tools:ignore="MissingConstraints"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
+        android:inputType="number"
+        android:digits="0123456789"
         android:hint="目標金額"
         android:textSize="17dp"
         android:gravity="center"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/input_form_1" />
+        app:layout_constraintTop_toBottomOf="@+id/input_form_1" />
 
     <EditText
         android:id="@+id/input_form_3"
         tools:ignore="MissingConstraints"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
+        android:inputType="number"
+        android:digits="0123456789"
         android:hint="每月規劃金額"
         android:textSize="17dp"
         android:gravity="center"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginTop="45dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/input_form_2" />
+        app:layout_constraintTop_toBottomOf="@+id/input_form_2" />
 
     <EditText
         android:id="@+id/input_form_4"
         tools:ignore="MissingConstraints"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
+        android:inputType="number"
+        android:digits="0123456789"
         android:hint="預計幾年達成"
         android:textSize="17dp"
         android:gravity="center"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginTop="45dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/input_form_3" />
+        app:layout_constraintTop_toBottomOf="@id/input_form_3" />
 
     <View
         android:id="@+id/rectangle_small_2"
@@ -172,8 +169,6 @@
         app:layout_constraintTop_toTopOf="@+id/rectangle_small_2"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle_small_2" />
 
-    <!--不會寫下拉式是選單-->
-    <!--android:prompt="可承受的風險範圍"-->
     <Spinner
         android:id="@+id/spinner_2"
         android:background="@android:drawable/btn_dropdown"
@@ -194,7 +189,7 @@
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:ems="10"
+        android:digits="0123456789."
         android:hint="預期報酬率 (1% - 15%)"
         android:textSize="17dp"
         android:gravity="center"

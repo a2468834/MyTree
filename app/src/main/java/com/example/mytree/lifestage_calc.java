@@ -33,7 +33,7 @@ public class lifestage_calc extends AppCompatActivity {
         want_retire_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(lifestage_calc.this, want_retire.class);
+                Intent intent = new Intent(lifestage_calc.this, want_to_retire.class);
                 startActivity(intent);
             }
         });

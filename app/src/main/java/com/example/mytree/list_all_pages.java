@@ -130,7 +130,7 @@ public class list_all_pages extends AppCompatActivity {
         button_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(list_all_pages.this, want_retire.class);
+                Intent intent = new Intent(list_all_pages.this, want_to_retire.class);
                 intent.putExtra("next_activity_name", "import_transaction");
                 startActivity(intent);
             }

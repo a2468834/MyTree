@@ -25,8 +25,7 @@ public class suggest_dn_cathay_app extends AppCompatActivity {
                 }
             });
         }
-
-        else{
+        else{ // getIntent().getStringExtra("next_activity_name") == "my_forest"
             close_button = (ImageButton) findViewById(R.id.叉叉_image);
             close_button.setOnClickListener(new View.OnClickListener() {
                 @Override

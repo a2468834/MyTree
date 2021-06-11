@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,18 +19,12 @@ import com.anychart.core.ui.Label;
 import com.anychart.core.ui.Title;
 */
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class preview_building_tree extends AppCompatActivity {
 
@@ -42,19 +35,160 @@ public class preview_building_tree extends AppCompatActivity {
     private TextView next_page_button_text;
     private View next_page_button_rectangle;
 
-    PieChart pie_chart_view;
+    // 分頁：機會投資
+    private View left_tab_rectangle;
+    private TextView left_tab_text;
+    // 分頁：現金
+    private View middle_tab_rectangle;
+    private TextView middle_tab_text;
+    // 分頁：保值
+    private View right_tab_rectangle;
+    private TextView right_tab_text;
+
+    private TextView text_view_1;
+    private TextView text_view_2;
+    private TextView text_view_3;
+    private View rectangle_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview_building_tree);
 
+        drawPieChart();
+
+        go_back_button = (ImageView) findViewById(R.id.返回鍵_image);
+        go_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(preview_building_tree.this, lifestage_calc.class);
+                startActivity(intent);
+            }
+        });
+
+        next_page_button_text = (TextView) findViewById(R.id.text_3);
+        next_page_button_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(preview_building_tree.this, plant_tree.class);
+                startActivity(intent);
+            }
+        });
+
+        next_page_button_rectangle = (View) findViewById(R.id.rectangle_small);
+        next_page_button_rectangle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(preview_building_tree.this, plant_tree.class);
+                startActivity(intent);
+            }
+        });
+
+        left_tab_rectangle = (View) findViewById(R.id.rectangle_small_機會投資);
+        left_tab_rectangle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rectangle_view = findViewById(R.id.rectangle_large_機會投資);
+                text_view_1 = findViewById(R.id.說明_機會投資_text_1);
+                text_view_2 = findViewById(R.id.說明_機會投資_text_2);
+                text_view_3 = findViewById(R.id.說明_機會投資_text_3);
+                rectangle_view.bringToFront();
+                text_view_1.bringToFront();
+                text_view_2.bringToFront();
+                text_view_3.bringToFront();
+            }
+        });
+
+        left_tab_text = (TextView) findViewById(R.id.機會投資_text);
+        left_tab_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rectangle_view = findViewById(R.id.rectangle_large_機會投資);
+                text_view_1 = findViewById(R.id.說明_機會投資_text_1);
+                text_view_2 = findViewById(R.id.說明_機會投資_text_2);
+                text_view_3 = findViewById(R.id.說明_機會投資_text_3);
+                rectangle_view.bringToFront();
+                text_view_1.bringToFront();
+                text_view_2.bringToFront();
+                text_view_3.bringToFront();
+            }
+        });
+
+        middle_tab_rectangle = (View) findViewById(R.id.rectangle_small_現金);
+        middle_tab_rectangle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rectangle_view = findViewById(R.id.rectangle_large_現金);
+                text_view_1 = findViewById(R.id.說明_現金_text_1);
+                rectangle_view.bringToFront();
+                text_view_1.bringToFront();
+            }
+        });
+
+        middle_tab_text = (TextView) findViewById(R.id.現金_text);
+        middle_tab_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rectangle_view = findViewById(R.id.rectangle_large_現金);
+                text_view_1 = findViewById(R.id.說明_現金_text_1);
+                rectangle_view.bringToFront();
+                text_view_1.bringToFront();
+            }
+        });
+
+        right_tab_rectangle = (View) findViewById(R.id.rectangle_small_保值);
+        right_tab_rectangle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rectangle_view = findViewById(R.id.rectangle_large_保值);
+                text_view_1 = findViewById(R.id.說明_保值_text_1);
+                text_view_2 = findViewById(R.id.說明_保值_text_2);
+                text_view_3 = findViewById(R.id.說明_保值_text_3);
+                rectangle_view.bringToFront();
+                text_view_1.bringToFront();
+                text_view_2.bringToFront();
+                text_view_3.bringToFront();
+            }
+        });
+
+        right_tab_text = (TextView) findViewById(R.id.保值_text);
+        right_tab_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rectangle_view = findViewById(R.id.rectangle_large_保值);
+                text_view_1 = findViewById(R.id.說明_保值_text_1);
+                text_view_2 = findViewById(R.id.說明_保值_text_2);
+                text_view_3 = findViewById(R.id.說明_保值_text_3);
+                rectangle_view.bringToFront();
+                text_view_1.bringToFront();
+                text_view_2.bringToFront();
+                text_view_3.bringToFront();
+            }
+        });
+/*
+        String test_log_str = "";
+        intent_bundle = getIntent().getExtras();
+
+        if(intent_bundle != null){
+            for(String key : intent_bundle.keySet()){
+                test_log_str += intent_bundle.get(key) != null ? intent_bundle.get(key) : "";
+                test_log_str += "\n";
+            }
+        }
+
+        test_textview = (TextView) findViewById(R.id.test_log_text);
+        test_textview.setText(test_log_str);
+*/
+    }
+
+    private void drawPieChart(){
+        PieChart pie_chart_view;
         pie_chart_view = findViewById(R.id.pie_chart);
 
         ArrayList<PieEntry> pie_chart_entries = new ArrayList<>();
-        pie_chart_entries.add(new PieEntry(55, "機會投資"));
-        pie_chart_entries.add(new PieEntry(5, "現金"));
-        pie_chart_entries.add(new PieEntry(35, "保值"));
+        pie_chart_entries.add(new PieEntry(55f, "機會投資%"));
+        pie_chart_entries.add(new PieEntry(5f, "現金%"));
+        pie_chart_entries.add(new PieEntry(35f, "保值%"));
 
         PieDataSet data_set = new PieDataSet(pie_chart_entries, null);
         data_set.setColors(new int[]{Color.rgb(94, 198, 147), Color.rgb(254, 144, 19), Color.rgb(61, 179, 233)});
@@ -83,61 +217,5 @@ public class preview_building_tree extends AppCompatActivity {
         pie_chart_view.setEntryLabelTextSize(14f);
         pie_chart_view.setExtraTopOffset(6f);
         pie_chart_view.setExtraBottomOffset(4f);
-
-        go_back_button = (ImageView) findViewById(R.id.返回鍵_image);
-        go_back_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(preview_building_tree.this, lifestage_calc.class);
-                startActivity(intent);
-            }
-        });
-
-        next_page_button_text = (TextView) findViewById(R.id.text_3);
-        next_page_button_text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(preview_building_tree.this, plant_tree.class);
-                startActivity(intent);
-            }
-        });
-
-        next_page_button_rectangle = (View) findViewById(R.id.rectangle_small);
-        next_page_button_rectangle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(preview_building_tree.this, plant_tree.class);
-                startActivity(intent);
-            }
-        });
-/*
-        String test_log_str = "";
-        intent_bundle = getIntent().getExtras();
-
-        if(intent_bundle != null){
-            for(String key : intent_bundle.keySet()){
-                test_log_str += intent_bundle.get(key) != null ? intent_bundle.get(key) : "";
-                test_log_str += "\n";
-            }
-        }
-
-        test_textview = (TextView) findViewById(R.id.test_log_text);
-        test_textview.setText(test_log_str);
-*/
     }
-/*
-    private Pie drawPieChart(){
-        Pie pie = AnyChart.pie();
-
-        pie.background().fill("#ffffff");
-
-        List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("John", 10000));
-        data.add(new ValueDataEntry("Jake", 12000));
-        data.add(new ValueDataEntry("Peter", 18000));
-
-        pie.data(data);
-        return pie;
-    }
-*/
 }

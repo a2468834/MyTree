@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTree">
-        <activity android:name=".plant_tree"></activity>
+        <activity android:name=".tree_detail"></activity>
+        <activity android:name=".plant_tree" />
         <activity android:name=".want_to_retire" />
         <activity android:name=".preview_building_tree" />
         <activity android:name=".lifestage_calc" />
@@ -23,6 +24,7 @@
         <activity android:name=".koko_home_page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

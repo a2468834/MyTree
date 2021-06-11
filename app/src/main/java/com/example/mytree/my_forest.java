@@ -7,12 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class my_forest extends AppCompatActivity {
 
     private ImageView go_back_button;
     private ImageView go_to_lifestage_calc;
     private ImageView go_to_plant_tree;
+
+    private ImageView tesla_tree_image;
+    private TextView tesla_tree_text;
+
+    private ImageView barn_image;
+    private TextView barn_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,44 @@ public class my_forest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(my_forest.this, plant_tree.class);
+                startActivity(intent);
+            }
+        });
+
+        tesla_tree_image = (ImageView) findViewById(R.id.level5_tree_image);
+        tesla_tree_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(my_forest.this, tree_detail.class);
+                startActivity(intent);
+            }
+        });
+
+        tesla_tree_text = (TextView) findViewById(R.id.特斯拉_text);
+        tesla_tree_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(my_forest.this, tree_detail.class);
+                startActivity(intent);
+            }
+        });
+
+        barn_image = (ImageView) findViewById(R.id.管理室_image);
+        barn_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(my_forest.this, suggest_dn_cathay_app.class);
+                intent.putExtra("next_activity_name", "my_forest");
+                startActivity(intent);
+            }
+        });
+
+        barn_text = (TextView) findViewById(R.id.管理室_text);
+        barn_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(my_forest.this, suggest_dn_cathay_app.class);
+                intent.putExtra("next_activity_name", "my_forest");
                 startActivity(intent);
             }
         });
